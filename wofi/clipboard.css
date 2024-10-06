@@ -1,31 +1,31 @@
 * {
-    border-radius: 16px;
+    border-radius: 20px;
     font-weight: normal;
     font-size: 16px;
     outline: none;
+    border: none;
 }
 
 #window {
-    background: #202020;
+    background: #101010;
     color: #FFFFFF;
+    border: solid 2px #202020;
 }
 
 #input {
-    background: #303030;
-    border: 2px solid #808080;
+    background: #202020;
     padding: 8px;
-}
-
-#input:focus {
-    border: 2px solid #FFFFFF;
 }
 
 #scroll {
     padding: 8px;
 }
 
+#entry {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
 #entry:selected {
-    box-shadow: inset 0 0 0 2px #808080;
-    border-radius: 64px;
-    background: #282828;
+    background: #202020;
 }
