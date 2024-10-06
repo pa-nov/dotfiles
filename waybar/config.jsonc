@@ -1,0 +1,101 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "bottom",
+    "output": "eDP-1",
+    "position": "top",
+    "height": 40,
+    "spacing": 8,
+    "margin-top": 8,
+    "margin-left": 8,
+    "margin-right": 8,
+    // Order of modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "battery",
+        "hyprland/language",
+        "clock"
+    ],
+    // Configuration of modules
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "show-special": true,
+        "move-to-monitor": true,
+        "format": "{icon}{windows}",
+        "format-icons": { "special": "" },
+        "format-window-separator": "",
+        "window-rewrite-default": "  {class}",
+        "window-rewrite": {
+            "class<kitty>": "  ",
+            "class<mousepad>": "  ",
+            "class<thunar>": "  ",
+            "class<nekoray>": "  ",
+            "class<brave-browser>": "  "
+        }
+    },
+    "tray": {
+        "show-passive-items": true,
+        "icon-size": 24,
+        "spacing": 4
+    },
+    "hyprland/window": {
+        "format": "{title}"
+    },
+    "network": {
+        "interval": 1,
+        "format": "",
+        "format-alt": "{bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "tooltip-format": "{ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)"
+    },
+    "bluetooth": {
+        "format": "",
+        "tooltip-format": "{status}",
+        "tooltip-format-connected": "Connected: {num_connections}\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%)",
+        "on-click": "blueberry",
+        "on-click-middle": "blueberry",
+        "on-click-right": "blueberry"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": [ "", "", "" ],
+            "headphone": ""
+        },
+        "format-muted": "",
+        "format-bluetooth": "",
+        "tooltip-format": "{volume}%"
+    },
+    "battery": {
+        "format": "{icon}",
+        "format-icons": [ "", "", "", "", "" ],
+        "format-plugged": "",
+        "format-charging": "",
+        "tooltip-format": "{capacity}%"
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "on-click": "hyprctl switchxkblayout all next",
+        "on-click-middle": "hyprctl switchxkblayout all next",
+        "on-click-right": "hyprctl switchxkblayout all next"
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%d.%m.%Y}",
+        "tooltip": false
+    }
+}
