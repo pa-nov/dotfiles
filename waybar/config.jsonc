@@ -1,6 +1,7 @@
 // -*- mode: jsonc -*-
 {
     "layer": "bottom",
+    "output": "eDP-1",
     "position": "top",
     "height": 40,
     "spacing": 8,
@@ -62,9 +63,9 @@
         "tooltip-format": "{status}",
         "tooltip-format-connected": "Connected: {num_connections}\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%)",
-        "on-click": "blueberry",
-        "on-click-middle": "blueberry",
-        "on-click-right": "blueberry"
+        "on-click": "blueman-manager",
+        "on-click-middle": "blueman-manager",
+        "on-click-right": "blueman-manager"
     },
     "pulseaudio": {
         "format": "{icon}",
