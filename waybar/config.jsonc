@@ -1,6 +1,7 @@
 // -*- mode: jsonc -*-
 {
     "layer": "bottom",
+//    "output": "eDP-1",
     "position": "top",
     "height": 40,
     "spacing": 8,
@@ -33,10 +34,20 @@
         "format-window-separator": "",
         "window-rewrite-default": "  {class}",
         "window-rewrite": {
+            "class<nm-applet>": "  ",
+            "class<nm-connection-editor>": "  ",
+            "class<blueman-manager>": "  ",
+            "class<nwg-look>": "  ",
+            "class<qt5ct>": "  ",
+            "class<qt6ct>": "  ",
             "class<kitty>": "  ",
-            "class<mousepad>": "  ",
             "class<thunar>": "  ",
-            "class<nekoray>": "  ",
+            "class<mousepad>": "  ",
+            "class<xarchiver>": "  ",
+            "class<ristretto>": "  ",
+            "class<vlc>": "  ",
+            "class<gpartedbin>": "  ",
+            "class<nekoray>": "  ",
             "class<brave-browser>": "  "
         }
     },
