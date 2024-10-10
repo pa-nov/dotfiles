@@ -4,12 +4,12 @@
     font-size: 24px;
     outline: none;
     border: none;
+    color: #FFFFFF;
 }
 
 #window {
     background: #101010;
-    color: #FFFFFF;
-    border: solid 2px #202020;
+    border: 2px solid #202020;
 }
 
 #input {
