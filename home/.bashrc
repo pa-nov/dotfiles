@@ -4,6 +4,8 @@
 
 [[ $- != *i* ]] && return
 
+alias e='exit'
+alias c='clear'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
