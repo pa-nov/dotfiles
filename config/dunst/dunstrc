@@ -23,7 +23,7 @@ highlight = "#40BB40"
 frame_color = "#808080"
 
 [urgency_low]
-frame_color = "#008000"
+frame_color = "#404040"
 
 [urgency_critical]
 frame_color = "#800000"
