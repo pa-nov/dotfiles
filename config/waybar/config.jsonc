@@ -11,7 +11,8 @@
     // Order of modules
     "modules-left": [
         "hyprland/workspaces",
-        "tray"
+        "tray",
+        "privacy"
     ],
     "modules-center": [
         "hyprland/window"
@@ -34,19 +35,19 @@
         "format-window-separator": "",
         "window-rewrite-default": "  {class}",
         "window-rewrite": {
-            "class<nm-applet>": "  ",
-            "class<nm-connection-editor>": "  ",
-            "class<blueman-manager>": "  ",
-            "class<nwg-look>": "  ",
-            "class<qt5ct>": "  ",
-            "class<qt6ct>": "  ",
+            "class<qt5ct>": "  ",
+            "class<qt6ct>": "  ",
+            "class<nwg-look>": "  ",
+            "class<nm-applet>": "  ",
+            "class<nm-connection-editor>": "  ",
+            "class<blueman-manager>": "  ",
             "class<kitty>": "  ",
             "class<thunar>": "  ",
-            "class<mousepad>": "  ",
             "class<xarchiver>": "  ",
+            "class<gpartedbin>": "  ",
+            "class<mousepad>": "  ",
             "class<ristretto>": "  ",
             "class<vlc>": "  ",
-            "class<gpartedbin>": "  ",
             "class<nekoray>": "  ",
             "class<brave-browser>": "  "
         }
@@ -55,6 +56,10 @@
         "show-passive-items": true,
         "icon-size": 24,
         "spacing": 4
+    },
+    "privacy": {
+        "icon-spacing": 8,
+        "icon-size": 20
     },
     "hyprland/window": {
         "format": "{title}"
