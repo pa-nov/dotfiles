@@ -1,0 +1,28 @@
+* {
+    background: none;
+    border-radius: 0;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 32px;
+    outline: none;
+    border: none;
+    color: #FFFFFF;
+}
+
+#window {
+    background: #101010;
+}
+
+#input {
+    background: #202020;
+    padding: 8px;
+}
+
+#scroll {
+    padding: 16px;
+}
+
+#entry:selected {
+    background: #202020;
+    border-radius: 24px;
+}
