@@ -23,7 +23,8 @@
         "pulseaudio",
         "battery",
         "hyprland/language",
-        "clock"
+        "clock",
+        "group/group-power"
     ],
     // Configuration of modules
     "hyprland/workspaces": {
@@ -112,5 +113,37 @@
         "format": "{:%H:%M:%S}",
         "format-alt": "{:%d.%m.%Y}",
         "tooltip": false
+    },
+    "group/group-power": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/poweroff",
+            "custom/lockscreen",
+            "custom/logout",
+            "custom/reboot"
+        ],
+        "drawer": {
+            "transition-left-to-right": false
+        }
+    },
+    "custom/lockscreen": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/lockscreen.sh"
+    },
+    "custom/logout": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/logout.sh"
+    },
+    "custom/reboot": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/reboot.sh"
+    },
+    "custom/poweroff": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/poweroff.sh"
     }
 }

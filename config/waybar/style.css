@@ -20,7 +20,11 @@ window {
 #pulseaudio,
 #battery,
 #language,
-#clock {
+#clock,
+#custom-lockscreen,
+#custom-logout,
+#custom-reboot,
+#custom-poweroff {
     color: #FFFFFF;
     background: #101010;
     box-shadow: inset 0 0 0 2px #808080;
@@ -65,4 +69,10 @@ window#waybar.empty #window {
 #bluetooth.disabled,
 #bluetooth.off {
     color: #808080;
+}
+
+#custom-lockscreen,
+#custom-logout,
+#custom-reboot {
+    margin-right: 8px;
 }
