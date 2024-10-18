@@ -79,19 +79,20 @@
         "tooltip-format": "{status}",
         "tooltip-format-connected": "Connected: {num_connections}\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%)",
-        "on-click": "blueman-manager",
-        "on-click-middle": "blueman-manager",
-        "on-click-right": "blueman-manager"
+        "on-click": "blueman-manager"
     },
     "pulseaudio": {
-        "format": "{icon}",
+        "format": "{format_source}{icon}",
         "format-icons": {
             "default": [ "", "", "" ],
             "headphone": ""
         },
-        "format-muted": "",
-        "format-bluetooth": "",
-        "tooltip-format": "{volume}%"
+        "format-muted": "{format_source}",
+        "format-bluetooth": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "  ",
+        "tooltip-format": "{volume}%",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
     "battery": {
         "format": "{icon}",
@@ -104,9 +105,7 @@
         "format": "{}",
         "format-en": "EN",
         "format-ru": "RU",
-        "on-click": "hyprctl switchxkblayout all next",
-        "on-click-middle": "hyprctl switchxkblayout all next",
-        "on-click-right": "hyprctl switchxkblayout all next"
+        "on-click": "hyprctl switchxkblayout all next"
     },
     "clock": {
         "interval": 1,
