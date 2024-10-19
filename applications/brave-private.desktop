@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+
+Icon=/home/programs/brave/product_logo_256.png
+Name=Brave (Private)
+GenericName=Web Browser
+Comment=Browser for the Internet in private mode
+
+Exec=/home/programs/brave/brave --password-store=basic --incognito
+Terminal=false
