@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "bottom",
+    "layer": "top",
 //    "output": "eDP-1",
     "position": "top",
     "height": 40,
@@ -11,13 +11,14 @@
     // Order of modules
     "modules-left": [
         "hyprland/workspaces",
-        "tray",
-        "privacy"
+        "tray"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
+        "pulseaudio#mic",
+        "privacy",
         "network",
         "bluetooth",
         "pulseaudio",
@@ -31,7 +32,7 @@
         "all-outputs": true,
         "show-special": true,
         "move-to-monitor": true,
-        "format": "{icon}{windows}",
+        "format": "{icon}<span foreground=\"#FFFFFF\">{windows}</span>",
         "format-icons": { "special": "" },
         "format-window-separator": "",
         "window-rewrite-default": "  {class}",
@@ -42,6 +43,7 @@
             "class<nm-applet>": "  ",
             "class<nm-connection-editor>": "  ",
             "class<blueman-manager>": "  ",
+            "class<wofi>": "  ",
             "class<kitty>": "  ",
             "class<thunar>": "  ",
             "class<xarchiver>": "  ",
@@ -50,7 +52,12 @@
             "class<ristretto>": "  ",
             "class<vlc>": "  ",
             "class<nekoray>": "  ",
-            "class<brave-browser>": "  "
+            "class<brave-browser>": "  ",
+            "class<code>": "  ",
+            "class<blender>": "  ",
+            "class<jetbrains-studio>": "  ",
+            "class<steam>": "  ",
+            "class<minecraft.*>": "  "
         }
     },
     "tray": {
@@ -58,12 +65,19 @@
         "icon-size": 24,
         "spacing": 4
     },
+    "hyprland/window": {
+        "format": "{title}"
+    },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "scroll-step": 0,
+        "tooltip-format": "Microphone muted"
+    },
     "privacy": {
         "icon-spacing": 8,
         "icon-size": 20
-    },
-    "hyprland/window": {
-        "format": "{title}"
     },
     "network": {
         "interval": 1,
@@ -76,21 +90,21 @@
     },
     "bluetooth": {
         "format": "",
+        "format-no-controller": "",
         "tooltip-format": "{status}",
-        "tooltip-format-connected": "Connected: {num_connections}\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias} ({device_battery_percentage}%)",
+        "tooltip-format-connected": "Number of connections: {num_connections}\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)",
         "on-click": "blueman-manager"
     },
     "pulseaudio": {
-        "format": "{format_source}{icon}",
+        "format": "{icon}",
         "format-icons": {
             "default": [ "", "", "" ],
             "headphone": ""
         },
-        "format-muted": "{format_source}",
-        "format-bluetooth": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "  ",
+        "format-muted": "",
+        "format-bluetooth": "",
         "tooltip-format": "{volume}%",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
@@ -111,7 +125,7 @@
         "interval": 1,
         "format": "{:%H:%M:%S}",
         "format-alt": "{:%d.%m.%Y}",
-        "tooltip": false
+        "tooltip-format": "{:%A, %d %B}"
     },
     "group/group-power": {
         "orientation": "inherit",
@@ -127,22 +141,22 @@
     },
     "custom/lockscreen": {
         "format": "",
-        "tooltip": false,
+        "tooltip-format": "Lock the screen",
         "on-click": "~/.config/hypr/scripts/lockscreen.sh"
     },
     "custom/logout": {
         "format": "",
-        "tooltip": false,
+        "tooltip-format": "Log out",
         "on-click": "~/.config/hypr/scripts/logout.sh"
     },
     "custom/reboot": {
         "format": "",
-        "tooltip": false,
+        "tooltip-format": "Reboot",
         "on-click": "~/.config/hypr/scripts/reboot.sh"
     },
     "custom/poweroff": {
         "format": "",
-        "tooltip": false,
+        "tooltip-format": "Power off",
         "on-click": "~/.config/hypr/scripts/poweroff.sh"
     }
 }
