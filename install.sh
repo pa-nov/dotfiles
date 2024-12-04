@@ -10,4 +10,4 @@ sudo pacman -S thunar thunar-archive-plugin --noconfirm --needed
 sudo pacman -S mousepad ristretto vlc gparted --noconfirm --needed
 
 echo ""
-./configure.sh
+./setup.sh
