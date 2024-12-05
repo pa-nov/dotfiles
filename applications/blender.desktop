@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+
+Icon=/home/programs/blender/blender.svg
+Name=Blender
+Comment=3D creation suite for modeling, animation, and rendering
+
+Exec=/home/programs/blender/blender
+Terminal=false

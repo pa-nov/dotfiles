@@ -3,8 +3,7 @@ Type=Application
 
 Icon=/home/programs/brave/product_logo_256.png
 Name=Brave
-GenericName=Web Browser
-Comment=Browser for the Internet
+Comment=Web browser for accessing the internet
 
 Exec=/home/programs/brave/brave --password-store=basic
 Terminal=false

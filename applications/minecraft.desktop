@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+
+Icon=/home/user/.minecraft/launcher/icons/minecraft256.png
+Name=Minecraft Launcher
+Comment=Launcher for playing Minecraft
+
+Exec=/home/user/.minecraft/launcher/minecraft-launcher
+Terminal=false

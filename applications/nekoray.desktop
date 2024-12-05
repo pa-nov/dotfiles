@@ -3,8 +3,7 @@ Type=Application
 
 Icon=/home/programs/nekoray/nekobox.png
 Name=NekoBox
-GenericName=VPN Client
-Comment=GUI proxy configuration manager
+Comment=Proxy configuration manager
 
 Exec=/home/programs/nekoray/nekoray
 Terminal=false

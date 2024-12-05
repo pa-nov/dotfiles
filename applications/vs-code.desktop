@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+
+Icon=/home/programs/vs-code/resources/app/resources/linux/code.png
+Name=Visual Studio Code
+Comment=Code editor for development and programming
+
+Exec=/home/programs/vs-code/code
+Terminal=false
