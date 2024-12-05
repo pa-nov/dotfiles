@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<command>cd %f; kitty</command>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>window-new</icon>
+	<name>Open in New Window</name>
+	<command>thunar %f</command>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>accessories-text-editor</icon>
+	<name>Open in Text Editor</name>
+	<command>mousepad %f</command>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>
