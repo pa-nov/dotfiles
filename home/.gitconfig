@@ -1,0 +1,4 @@
+[core]
+	pager = cat
+[alias]
+	last = log --reverse -n 5
