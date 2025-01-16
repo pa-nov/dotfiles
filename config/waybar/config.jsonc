@@ -3,24 +3,24 @@
     "layer": "top",
 //    "output": "eDP-1",
     "position": "top",
-    "height": 40,
-    "spacing": 8,
-    "margin-top": 8,
-    "margin-left": 8,
-    "margin-right": 8,
+    "height": 36,
+    "spacing": 4,
+    "margin-top": 4,
+    "margin-left": 4,
+    "margin-right": 4,
     // Order of modules
     "modules-left": [
-        "hyprland/workspaces",
-        "tray"
+        "wlr/taskbar"
     ],
     "modules-center": [
-        "hyprland/window"
+        "hyprland/workspaces"
     ],
     "modules-right": [
         "pulseaudio#mic",
         "privacy",
-        "network",
+        "tray",
         "bluetooth",
+        "network",
         "pulseaudio",
         "battery",
         "hyprland/language",
@@ -28,45 +28,19 @@
         "group/group-power"
     ],
     // Configuration of modules
+    "wlr/taskbar": {
+        "all-outputs": true,
+        "icon-size": 24,
+        "format": "{icon}",
+        "tooltip-format": "{title}",
+        "on-click": "activate"
+    },
     "hyprland/workspaces": {
         "all-outputs": true,
         "show-special": true,
         "move-to-monitor": true,
-        "format": "{icon}<span foreground=\"#FFFFFF\">{windows}</span>",
-        "format-icons": { "special": "" },
-        "format-window-separator": "",
-        "window-rewrite-default": "  {class}",
-        "window-rewrite": {
-            "class<qt5ct>": "  ",
-            "class<qt6ct>": "  ",
-            "class<nwg-look>": "  ",
-            "class<nm-applet>": "  ",
-            "class<nm-connection-editor>": "  ",
-            "class<blueman-manager>": "  ",
-            "class<wofi>": "  ",
-            "class<kitty>": "  ",
-            "class<thunar>": "  ",
-            "class<xarchiver>": "  ",
-            "class<gpartedbin>": "  ",
-            "class<mousepad>": "  ",
-            "class<ristretto>": "  ",
-            "class<vlc>": "  ",
-            "class<nekoray>": "  ",
-            "class<brave-browser>": "  ",
-            "class<code>": "  ",
-            "class<blender>": "  ",
-            "class<jetbrains-studio>": "  ",
-            "class<steam>": "  ",
-            "class<minecraft.*>": "  "
-        }
-    },
-    "tray": {
-        "show-passive-items": true,
-        "icon-size": 24,
-        "spacing": 4
-    },
-    "hyprland/window": {
-        "format": "{title}"
+        "format": "{icon}",
+        "format-icons": { "special": "" }
     },
     "pulseaudio#mic": {
         "format": "{format_source}",
@@ -79,14 +53,11 @@
         "icon-spacing": 8,
         "icon-size": 20
     },
-    "network": {
-        "interval": 1,
-        "format": "",
-        "format-alt": "{bandwidthUpBytes}  {bandwidthDownBytes}",
-        "format-wifi": "",
-        "format-ethernet": "",
-        "tooltip-format": "{ipaddr}/{cidr}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)"
+    "tray": {
+        "show-passive-items": true,
+        "reverse-direction": true,
+        "icon-size": 22,
+        "spacing": 6
     },
     "bluetooth": {
         "format": "",
@@ -96,6 +67,15 @@
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)",
         "on-click": "blueman-manager"
+    },
+    "network": {
+        "interval": 1,
+        "format": "",
+        "format-alt": "{bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "tooltip-format": "{ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)"
     },
     "pulseaudio": {
         "format": "{icon}",
@@ -131,32 +111,32 @@
         "orientation": "inherit",
         "modules": [
             "custom/poweroff",
-            "custom/lockscreen",
+            "custom/lock",
             "custom/logout",
-            "custom/reboot"
+            "custom/restart"
         ],
         "drawer": {
             "transition-left-to-right": false
         }
     },
-    "custom/lockscreen": {
+    "custom/lock": {
         "format": "",
-        "tooltip-format": "Lock the screen",
-        "on-click": "~/.config/hypr/scripts/lockscreen.sh"
+        "tooltip-format": "Lock",
+        "on-click": "~/.config/hypr/scripts/lock.sh"
     },
     "custom/logout": {
         "format": "",
-        "tooltip-format": "Log out",
+        "tooltip-format": "Log Out",
         "on-click": "~/.config/hypr/scripts/logout.sh"
     },
-    "custom/reboot": {
+    "custom/restart": {
         "format": "",
-        "tooltip-format": "Reboot",
-        "on-click": "~/.config/hypr/scripts/reboot.sh"
+        "tooltip-format": "Restart",
+        "on-click": "~/.config/hypr/scripts/restart.sh"
     },
     "custom/poweroff": {
         "format": "",
-        "tooltip-format": "Power off",
+        "tooltip-format": "Power Off",
         "on-click": "~/.config/hypr/scripts/poweroff.sh"
     }
 }

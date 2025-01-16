@@ -1,6 +1,6 @@
 #!/bin/bash
 
-result=$(~/.config/hypr/scripts/confirm.sh "Power off computer now?")
+result=$(~/.config/hypr/scripts/confirm.sh "Turn off the computer now?")
 
 if [ "$result" == "Yes" ]; then
     systemctl poweroff

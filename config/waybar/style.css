@@ -14,76 +14,110 @@ window {
     background: none;
 }
 
+tooltip {
+    background: #101018;
+    border: 2px dashed #808080;
+}
+
+tooltip label {
+    color: #808080;
+}
+
+#tray menu {
+    background: #101018;
+    border: 2px dashed #808080;
+    padding: 2px;
+}
+
+
 #workspaces button,
-#tray,
-#window,
 #privacy,
-#network,
+#tray,
 #bluetooth,
+#network,
 #pulseaudio,
 #battery,
 #language,
 #clock,
-#custom-lockscreen,
+#group-power,
+#custom-lock,
 #custom-logout,
-#custom-reboot,
-#custom-poweroff,
-#group-power {
+#custom-restart,
+#custom-poweroff {
     color: #FFFFFF;
-    background: #101010;
-    box-shadow: inset 0 0 0 2px #202020;
+    background: #101018;
     padding-left: 12px;
     padding-right: 12px;
 }
 
 
+#taskbar button {
+    background: #101018;
+    margin-right: 4px;
+}
+
+#taskbar button:last-child {
+    margin-right: 0;
+}
+
+#taskbar button:hover {
+    box-shadow: inset 0 0 2 2px #004080;
+}
+
+#taskbar button.active {
+    background: #103010;
+}
+
+
+#workspaces {
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
 #workspaces button {
-    color: #404040;
+    color: #808080;
+    border-radius: 16px;
     margin-right: 8px;
-}
-
-#workspaces button.visible {
-    color: #A0A0A0;
-}
-
-#workspaces button:hover {
-    box-shadow: inset 0 0 0 2px #404040;
 }
 
 #workspaces button:last-child {
     margin-right: 0;
 }
 
-#window {
-    border-radius: 20px;
-    margin-left: 16px;
-    margin-right: 16px;
+#workspaces button:hover {
+    box-shadow: inset 0 0 8 4px #004080;
 }
 
-window#waybar.empty #window {
-    background: none;
-    box-shadow: none;
+#workspaces button.visible {
+    color: #FFFFFF;
 }
 
-#pulseaudio.mic {
-    padding-left: 10px;
-    padding-right: 10px;
+
+#pulseaudio.mic,
+#tray,
+#network.wifi {
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
-#network.disabled,
+#bluetooth.off,
 #bluetooth.disabled,
-#bluetooth.off {
+#network.disabled {
     color: #808080;
 }
 
-#custom-lockscreen,
+#group-power,
+#custom-lock,
 #custom-logout,
-#custom-reboot {
-    margin-right: -24px;
-    padding-right: 32px;
+#custom-restart,
+#custom-poweroff {
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
-#group-power {
-    padding-left: 0;
-    padding-right: 0;
+#custom-lock:hover,
+#custom-logout:hover,
+#custom-restart:hover,
+#custom-poweroff:hover {
+    color: #FF4040;
 }
