@@ -1,29 +1,32 @@
 * {
-    background: none;
-    border-radius: 0;
-    font-family: Roboto;
-    font-weight: bold;
+    color: #FFFFFF;
     font-size: 32px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    border-radius: 0px;
+    background: none;
+    box-shadow: none;
     outline: none;
     border: none;
-    color: #FFFFFF;
 }
 
-#window {
-    background: #101010;
+#outer-box {
+    background: #202020;
 }
 
 #input {
-    background: #202020;
-    padding: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 #scroll {
-    padding: 16px;
+    background: #101018;
+    padding: 32px;
 }
 
 #entry {
-    border-radius: 24px;
+    border-radius: 12px;
+    padding: 8px;
 }
 
 #entry:selected {

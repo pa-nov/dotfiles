@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-
-Icon=steam
-Name=Steam
-Comment=Application for managing and playing games on Steam
-
-Exec=/usr/bin/steam-runtime
-Terminal=false
