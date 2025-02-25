@@ -1,13 +1,21 @@
 #!/bin/bash
 
-sudo pacman -S noto-fonts-emoji otf-font-awesome ttf-roboto ttf-jetbrains-mono --noconfirm --needed
-sudo pacman -S polkit-kde-agent dunst grim slurp wofi --noconfirm --needed
-sudo pacman -S gvfs gnome-keyring cliphist blueman qt5ct qt6ct nwg-look --noconfirm --needed
+echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Started: Installation"
 
-sudo pacman -S hyprpaper hyprpicker hyprlock waybar --noconfirm --needed
-sudo pacman -S zip unzip xarchiver --noconfirm --needed
-sudo pacman -S thunar thunar-archive-plugin --noconfirm --needed
-sudo pacman -S mousepad ristretto vlc gparted --noconfirm --needed
+sudo pacman -Syu --noconfirm
 
-echo ""
+sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland hyprpolkitagent
+sudo pacman -S --noconfirm --needed qt5-wayland qt6-wayland gnome-keyring gvfs cliphist
+sudo pacman -S --noconfirm --needed networkmanager network-manager-applet blueman brightnessctl
+sudo pacman -S --noconfirm --needed hyprlock hyprpaper hyprpicker waybar wofi dunst grim slurp
+
+sudo pacman -S --noconfirm --needed git tk zip unzip nwg-look qt5ct qt6ct
+sudo pacman -S --noconfirm --needed kitty thunar thunar-archive-plugin xarchiver
+sudo pacman -S --noconfirm --needed mousepad ristretto vlc gparted
+
+sudo pacman -S --noconfirm --needed noto-fonts-emoji otf-font-awesome ttf-roboto ttf-jetbrains-mono
+sudo pacman -S --noconfirm --needed orchis-theme tela-circle-icon-theme-standard
+
+echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Finished: Installation"
+
 ./setup.sh
