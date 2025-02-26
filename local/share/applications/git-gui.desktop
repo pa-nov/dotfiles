@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+
+Icon=git
+Name=Git
+Comment=Graphical interface for Git version control
+
+Exec=git gui
+Terminal=false

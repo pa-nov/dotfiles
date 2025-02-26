@@ -5,5 +5,5 @@ Icon=/home/programs/nekoray/nekobox.png
 Name=NekoBox
 Comment=Proxy configuration manager
 
-Exec=/home/programs/nekoray/nekoray
+Exec=/home/programs/nekoray/nekobox
 Terminal=false
