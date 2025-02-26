@@ -1,20 +1,34 @@
 #!/bin/bash
 
-mkdir ~/Desktop
-mkdir ~/Downloads
-mkdir ~/Templates
-mkdir ~/Public
-mkdir ~/Documents
-mkdir ~/Documents/Projects
-mkdir ~/Music
-mkdir ~/Pictures
-mkdir ~/Pictures/Screenshots
-mkdir ~/Videos
+run() {
+    if "$@"; then
+        echo "[$(tput setaf 10) SUCCESS $(tput sgr0)] $@"
+    else
+        echo "[$(tput setaf  9)  ERROR  $(tput sgr0)] $@"
+    fi
+}
 
-sudo cp -r ./sddm/. /etc/
-sudo cp -r ./root/. /root/
-cp -r ./home/. ~/
-cp -r ./applications/. ~/.local/share/applications/
-cp -r ./config/. ~/.config/
+echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Started: Configuration"
 
-sudo systemctl enable bluetooth
+run mkdir ~/Desktop
+run mkdir ~/Downloads
+run mkdir ~/Templates
+run mkdir ~/Public
+run mkdir ~/Documents
+run mkdir ~/Documents/Projects
+run mkdir ~/Music
+run mkdir ~/Pictures
+run mkdir ~/Pictures/Screenshots
+run mkdir ~/Videos
+
+run cp -r ./user/. ~/
+run cp -r ./local/. ~/.local/
+run cp -r ./config/. ~/.config/
+
+run sudo cp -r ./etc/. /etc/
+run sudo cp -r ./root/. /root/
+run sudo systemctl enable bluetooth
+
+run hyprctl reload
+
+echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Finished: Configuration"
