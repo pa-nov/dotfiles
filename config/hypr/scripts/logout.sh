@@ -1,7 +1,7 @@
 #!/bin/bash
 
-result=$(~/.config/hypr/scripts/confirm.sh "Log out of your session now?")
+result=$($HOME/.config/wofi/confirm.sh "Log out of this session now?")
 
-if [ "$result" == "Yes" ]; then
+if [[ "$result" == "true" ]]; then
     hyprctl dispatch exit
 fi

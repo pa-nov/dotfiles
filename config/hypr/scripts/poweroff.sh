@@ -1,7 +1,7 @@
 #!/bin/bash
 
-result=$(~/.config/hypr/scripts/confirm.sh "Turn off the computer now?")
+result=$($HOME/.config/wofi/confirm.sh "Turn off computer now?")
 
-if [ "$result" == "Yes" ]; then
+if [[ "$result" == "true" ]]; then
     systemctl poweroff
 fi

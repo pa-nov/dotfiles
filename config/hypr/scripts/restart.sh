@@ -1,7 +1,7 @@
 #!/bin/bash
 
-result=$(~/.config/hypr/scripts/confirm.sh "Restart the computer now?")
+result=$($HOME/.config/wofi/confirm.sh "Restart computer now?")
 
-if [ "$result" == "Yes" ]; then
+if [[ "$result" == "true" ]]; then
     systemctl reboot
 fi

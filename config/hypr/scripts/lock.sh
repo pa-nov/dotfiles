@@ -1,7 +1,7 @@
 #!/bin/bash
 
-result=$(~/.config/hypr/scripts/confirm.sh "Lock the screen now?")
+result=$($HOME/.config/wofi/confirm.sh "Lock screen now?")
 
-if [ "$result" == "Yes" ]; then
+if [[ "$result" == "true" ]]; then
     hyprlock
 fi
