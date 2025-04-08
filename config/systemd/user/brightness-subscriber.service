@@ -3,4 +3,4 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=oneshot
-ExecStart=/home/user/.config/hypr/subscribers/brightness.sh
+ExecStart=%h/.config/hypr/subscribers/brightness.sh
