@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+
+Icon=brave-desktop-dev
+Name=Brave - Private
+Comment=Web browser for accessing the internet in private mode
+
+Exec=/home/programs/brave/brave --ozone-platform=wayland --incognito %U
+Terminal=false

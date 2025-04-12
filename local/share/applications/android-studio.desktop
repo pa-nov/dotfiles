@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 
-Icon=/home/programs/android/studio/bin/studio.png
+Icon=android-studio
 Name=Android Studio
-Comment=IDE for Android applications development
+Comment=IDE for android application development
 
-Exec=/home/programs/android/studio/bin/studio
+Exec=/home/programs/android/studio/bin/studio %f
 Terminal=false

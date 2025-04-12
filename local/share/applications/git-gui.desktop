@@ -3,7 +3,7 @@ Type=Application
 
 Icon=git
 Name=Git
-Comment=Graphical interface for Git version control
+Comment=Graphical interface for git version control system
 
 Exec=git gui
 Terminal=false

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 
-Icon=/home/programs/nekoray/nekobox.png
+Icon=preferences-system-network-proxy
 Name=NekoBox
 Comment=Proxy configuration manager
 

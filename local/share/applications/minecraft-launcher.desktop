@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 
-Icon=/home/user/.minecraft/launcher/icons/minecraft256.png
+Icon=minecraft-launcher
 Name=Minecraft Launcher
-Comment=Launcher for playing Minecraft
+Comment=Launcher for the Minecraft game
 
 Exec=/home/user/.minecraft/launcher/minecraft-launcher
 Terminal=false

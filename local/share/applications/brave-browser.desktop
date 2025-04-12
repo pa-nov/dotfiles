@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 
-Icon=/home/programs/brave/product_logo_256.png
+Icon=brave-desktop
 Name=Brave
 Comment=Web browser for accessing the internet
 
-Exec=/home/programs/brave/brave --password-store=basic
+Exec=/home/programs/brave/brave --ozone-platform=wayland %U
 Terminal=false
