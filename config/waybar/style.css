@@ -14,19 +14,12 @@ window {
     background: none;
 }
 
-tooltip {
-    background: #101018;
-    border: 2px dashed #808080;
-}
-
 tooltip label {
-    color: #808080;
+    padding: 8px;
 }
 
 #tray menu {
-    background: #101018;
-    border: 2px dashed #808080;
-    padding: 2px;
+    background: #202020;
 }
 
 #tray separator {
@@ -40,8 +33,6 @@ tooltip label {
 #workspaces button,
 #privacy,
 #tray,
-#bluetooth,
-#network,
 #pulseaudio,
 #battery,
 #language,
@@ -96,16 +87,9 @@ tooltip label {
 
 
 #pulseaudio.mic,
-#tray,
-#network.wifi {
+#tray {
     padding-left: 8px;
     padding-right: 8px;
-}
-
-#bluetooth.off,
-#bluetooth.disabled,
-#network.disabled {
-    color: #808080;
 }
 
 #group-power,
