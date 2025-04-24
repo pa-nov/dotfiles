@@ -10,35 +10,49 @@
     "margin-right": 4,
     // Order of modules
     "modules-left": [
+        "custom/apps",
         "wlr/taskbar"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "pulseaudio#mic",
-        "privacy",
+        "group/group-privacy",
+        "group/group-hardware",
         "tray",
         "pulseaudio",
-        "battery",
         "hyprland/language",
         "clock",
         "group/group-power"
     ],
-    // Configuration of modules
+    // Configuration of left modules
+    "custom/apps": {
+        "format": "Apps",
+        "tooltip-format": "Applications",
+        "on-click": "~/.config/wofi/applications.sh --waybar"
+    },
     "wlr/taskbar": {
         "all-outputs": true,
-        "icon-size": 24,
+        "icon-size": 28,
         "format": "{icon}",
         "tooltip-format": "{title}",
         "on-click": "activate"
     },
+    // Configuration of center modules
     "hyprland/workspaces": {
         "all-outputs": true,
         "show-special": true,
         "move-to-monitor": true,
         "format": "{icon}",
         "format-icons": { "special": "" }
+    },
+    // Configuration of right modules
+    "group/group-privacy": {
+        "orientation": "inherit",
+        "modules": [
+            "pulseaudio#mic",
+            "privacy"
+        ]
     },
     "pulseaudio#mic": {
         "format": "{format_source}",
@@ -55,7 +69,7 @@
         "show-passive-items": true,
         "reverse-direction": true,
         "icon-size": 22,
-        "spacing": 6
+        "spacing": 4
     },
     "pulseaudio": {
         "format": "{icon}",
@@ -67,13 +81,6 @@
         "format-bluetooth": "",
         "tooltip-format": "{volume}%",
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    },
-    "battery": {
-        "format": "{icon}",
-        "format-icons": [ "", "", "", "", "" ],
-        "format-plugged": "",
-        "format-charging": "",
-        "tooltip-format": "{capacity}%"
     },
     "hyprland/language": {
         "format": "{}",
@@ -87,6 +94,39 @@
         "format-alt": "{:%d.%m.%Y}",
         "tooltip-format": "{:%A, %d %B}"
     },
+    // Configuration of hardware modules
+    "group/group-hardware": {
+        "orientation": "inherit",
+        "modules": [
+            "systemd-failed-units",
+            "cpu",
+            "memory",
+            "temperature",
+            "battery"
+        ]
+    },
+    "systemd-failed-units": {
+        "format": " {nr_failed}"
+    },
+    "cpu": {
+        "format": " {usage}%"
+    },
+    "memory": {
+        "format": " {percentage}%",
+        "tooltip-format": "{used:0.3f}/{total:0.3f}"
+    },
+    "temperature": {
+        "format": " {temperatureC}°",
+        "tooltip-format": "{temperatureC}°"
+    },
+    "battery": {
+        "format": "{icon}",
+        "format-icons": [ "", "", "", "", "" ],
+        "format-plugged": "",
+        "format-charging": "",
+        "tooltip-format": "{capacity}%"
+    },
+    // Configuration of power modules
     "group/group-power": {
         "orientation": "inherit",
         "modules": [

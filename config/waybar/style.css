@@ -1,4 +1,4 @@
-/* `otf-font-awesome` is required to be installed for icons */
+/* "otf-font-awesome" is required to be installed for icons */
 
 * {
     border-radius: 12px;
@@ -29,19 +29,20 @@ tooltip label {
 }
 
 
-#taskbar button,
-#workspaces button,
+#taskbar,
+#workspaces,
+#group-privacy,
+#pulseaudio.mic,
 #privacy,
-#tray,
+#tray {
+    color: #FFFFFF;
+    background: #101018;
+}
+
+#custom-apps,
 #pulseaudio,
-#battery,
 #language,
-#clock,
-#group-power,
-#custom-lock,
-#custom-logout,
-#custom-restart,
-#custom-poweroff {
+#clock {
     color: #FFFFFF;
     background: #101018;
     padding-left: 10px;
@@ -50,60 +51,74 @@ tooltip label {
 
 
 #taskbar button {
-    margin-left: 2px;
-    margin-right: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
-}
-
-#taskbar button:first-child {
-    margin-left: 0;
-}
-
-#taskbar button:last-child {
-    margin-right: 0;
+    padding: 4px;
 }
 
 #taskbar button.active {
-    background: #103010;
+    background: #204020;
 }
 
 
 #workspaces {
-    margin-left: 32px;
-    margin-right: 32px;
+    border-radius: 20px;
 }
 
 #workspaces button {
-    color: #808080;
     border-radius: 20px;
-    margin-left: 4px;
-    margin-right: 4px;
+    min-width: 16px;
+    color: #808080;
 }
 
 #workspaces button.visible {
     color: #FFFFFF;
 }
 
+#workspaces button.active {
+    background: #202040;
+}
 
-#pulseaudio.mic,
+
+#pulseaudio.mic {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#group-privacy,
+#privacy {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
 #tray {
     padding-left: 8px;
     padding-right: 8px;
 }
 
-#group-power,
-#custom-lock,
-#custom-logout,
-#custom-restart,
-#custom-poweroff {
-    padding-left: 5px;
-    padding-right: 5px;
+#privacy {
+    color: #FFFF40;
 }
 
+#pulseaudio.mic,
 #custom-lock:hover,
 #custom-logout:hover,
 #custom-restart:hover,
 #custom-poweroff:hover {
     color: #FF4040;
+}
+
+#group-hardware,
+#systemd-failed-units,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#group-power,
+#custom-lock,
+#custom-logout,
+#custom-restart,
+#custom-poweroff {
+    color: #FFFFFF;
+    background: #101018;
+    padding-left: 5px;
+    padding-right: 5px;
 }
