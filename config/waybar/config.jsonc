@@ -8,7 +8,7 @@
     "margin-top": 4,
     "margin-left": 4,
     "margin-right": 4,
-    // Order of modules
+// Order of modules
     "modules-left": [
         "custom/apps",
         "wlr/taskbar"
@@ -17,15 +17,13 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "group/group-privacy",
-        "group/group-hardware",
-        "tray",
-        "pulseaudio",
+        "group/group-system",
+        "group/group-tray",
         "hyprland/language",
         "clock",
         "group/group-power"
     ],
-    // Configuration of left modules
+// Configuration of left modules
     "custom/apps": {
         "format": "Apps",
         "tooltip-format": "Applications",
@@ -38,7 +36,7 @@
         "tooltip-format": "{title}",
         "on-click": "activate"
     },
-    // Configuration of center modules
+// Configuration of center modules
     "hyprland/workspaces": {
         "all-outputs": true,
         "show-special": true,
@@ -46,42 +44,7 @@
         "format": "{icon}",
         "format-icons": { "special": "" }
     },
-    // Configuration of right modules
-    "group/group-privacy": {
-        "orientation": "inherit",
-        "modules": [
-            "pulseaudio#mic",
-            "privacy"
-        ]
-    },
-    "pulseaudio#mic": {
-        "format": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
-        "scroll-step": 0,
-        "tooltip-format": "Microphone muted"
-    },
-    "privacy": {
-        "icon-spacing": 8,
-        "icon-size": 20
-    },
-    "tray": {
-        "show-passive-items": true,
-        "reverse-direction": true,
-        "icon-size": 22,
-        "spacing": 4
-    },
-    "pulseaudio": {
-        "format": "{icon}",
-        "format-icons": {
-            "default": [ "", "", "" ],
-            "headphone": ""
-        },
-        "format-muted": "",
-        "format-bluetooth": "",
-        "tooltip-format": "{volume}%",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    },
+// Configuration of right modules
     "hyprland/language": {
         "format": "{}",
         "format-en": "EN",
@@ -94,8 +57,8 @@
         "format-alt": "{:%d.%m.%Y}",
         "tooltip-format": "{:%A, %d %B}"
     },
-    // Configuration of hardware modules
-    "group/group-hardware": {
+// Configuration of system modules
+    "group/group-system": {
         "orientation": "inherit",
         "modules": [
             "systemd-failed-units",
@@ -109,24 +72,61 @@
         "format": " {nr_failed}"
     },
     "cpu": {
+        "interval": 10,
         "format": " {usage}%"
     },
     "memory": {
+        "interval": 10,
         "format": " {percentage}%",
-        "tooltip-format": "{used:0.3f}/{total:0.3f}"
+        "tooltip-format": "{used:0.3f} MB of {total:0.3f} MB used"
     },
     "temperature": {
+        "interval": 10,
         "format": " {temperatureC}°",
-        "tooltip-format": "{temperatureC}°"
+        "tooltip-format": "{temperatureC} °C"
     },
     "battery": {
+        "interval": 10,
         "format": "{icon}",
         "format-icons": [ "", "", "", "", "" ],
-        "format-plugged": "",
-        "format-charging": "",
+        "format-charging": "",
         "tooltip-format": "{capacity}%"
     },
-    // Configuration of power modules
+// Configuration of tray modules
+    "group/group-tray": {
+        "orientation": "inherit",
+        "modules": [
+            "pulseaudio#in",
+            "privacy",
+            "tray",
+            "pulseaudio#out"
+        ]
+    },
+    "pulseaudio#in": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "tooltip-format": "Microphone Muted",
+        "scroll-step": 0
+    },
+    "privacy": {
+        "icon-size": 16,
+        "icon-spacing": 8
+    },
+    "tray": {
+        "show-passive-items": true,
+        "reverse-direction": true,
+        "icon-size": 22,
+        "spacing": 6
+    },
+    "pulseaudio#out": {
+        "format": "{icon}",
+        "format-icons": [ " ", " ", "" ],
+        "format-muted": "",
+        "tooltip-format": "{volume}%",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+// Configuration of power modules
     "group/group-power": {
         "orientation": "inherit",
         "modules": [

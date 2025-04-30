@@ -1,5 +1,9 @@
 /* "otf-font-awesome" is required to be installed for icons */
 
+@define-color text-color #FFFFFF;
+@define-color half-color #808080;
+@define-color back-color #101018;
+
 * {
     border-radius: 12px;
     font-family: "Roboto", sans-serif;
@@ -18,37 +22,34 @@ tooltip label {
     padding: 8px;
 }
 
-#tray menu {
+menu {
     background: #202020;
 }
 
-#tray separator {
+menu separator {
     background: #404040;
     margin-left: 12px;
     margin-right: 12px;
 }
 
 
-#taskbar,
-#workspaces,
-#group-privacy,
-#pulseaudio.mic,
-#privacy,
-#tray {
-    color: #FFFFFF;
-    background: #101018;
-}
-
 #custom-apps,
-#pulseaudio,
 #language,
 #clock {
-    color: #FFFFFF;
-    background: #101018;
+    color: @text-color;
+    background: @back-color;
     padding-left: 10px;
     padding-right: 10px;
 }
 
+
+#taskbar {
+    background: @back-color;
+}
+
+#taskbar.empty {
+    background: none;
+}
 
 #taskbar button {
     padding: 4px;
@@ -60,17 +61,18 @@ tooltip label {
 
 
 #workspaces {
+    background: @back-color;
     border-radius: 20px;
 }
 
 #workspaces button {
-    border-radius: 20px;
+    color: @half-color;
     min-width: 16px;
-    color: #808080;
+    border-radius: 20px;
 }
 
 #workspaces button.visible {
-    color: #FFFFFF;
+    color: @text-color;
 }
 
 #workspaces button.active {
@@ -78,47 +80,39 @@ tooltip label {
 }
 
 
-#pulseaudio.mic {
-    padding-left: 2px;
-    padding-right: 2px;
+#group-system,
+#systemd-failed-units,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#group-tray,
+#pulseaudio,
+#privacy,
+#tray,
+#group-power,
+#custom-lock,
+#custom-logout,
+#custom-restart,
+#custom-poweroff {
+    color: @text-color;
+    background: @back-color;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-#group-privacy,
-#privacy {
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-#tray {
-    padding-left: 8px;
-    padding-right: 8px;
+#pulseaudio {
+    font-size: 16px;
 }
 
 #privacy {
     color: #FFFF40;
 }
 
-#pulseaudio.mic,
+#pulseaudio.in,
 #custom-lock:hover,
 #custom-logout:hover,
 #custom-restart:hover,
 #custom-poweroff:hover {
     color: #FF4040;
-}
-
-#group-hardware,
-#systemd-failed-units,
-#cpu,
-#memory,
-#temperature,
-#battery,
-#group-power,
-#custom-lock,
-#custom-logout,
-#custom-restart,
-#custom-poweroff {
-    color: #FFFFFF;
-    background: #101018;
-    padding-left: 5px;
-    padding-right: 5px;
 }
