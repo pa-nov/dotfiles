@@ -26,7 +26,7 @@ run cp -r ./local/. ~/.local/
 run cp -r ./config/. ~/.config/
 
 run sudo cp -r ./etc/. /etc/
-run sudo cp -r ./root/. /root/
+run sudo cp -r ./user/. /root/
 run sudo systemctl enable bluetooth
 
 run hyprctl reload
