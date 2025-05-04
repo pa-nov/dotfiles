@@ -1,21 +1,45 @@
 #!/bin/bash
 
-echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Started: Installation"
+title=$(echo -e "\e[94mdotfiles\e[0m")
 
+install_packages() {
+    sudo pacman -S --needed --noconfirm $@
+    sudo pacman -D --quiet --asexplicit --noconfirm $@
+}
+
+echo "[$title] Started: Installation"
+
+sudo cp ./etc/pacman.conf /etc/pacman.conf
 sudo pacman -Syu --noconfirm
 
-sudo pacman -S --noconfirm --needed hyprland xdg-desktop-portal-hyprland hyprpolkitagent
-sudo pacman -S --noconfirm --needed qt5-wayland qt6-wayland gnome-keyring gvfs cliphist
-sudo pacman -S --noconfirm --needed networkmanager network-manager-applet blueman brightnessctl
-sudo pacman -S --noconfirm --needed hyprlock hyprpaper hyprpicker waybar wofi dunst grim slurp
+install_packages openssh curl wget socat nano htop git
+install_packages bash-completion brightnessctl zip unzip
+install_packages orchis-theme tela-circle-icon-theme-standard
+install_packages noto-fonts-emoji otf-font-awesome ttf-roboto ttf-jetbrains-mono
 
-sudo pacman -S --noconfirm --needed git tk zip unzip nwg-look qt5ct qt6ct
-sudo pacman -S --noconfirm --needed kitty thunar thunar-archive-plugin xarchiver
-sudo pacman -S --noconfirm --needed mousepad ristretto vlc gparted
+install_packages tk gtk3 gtk4 qt5-wayland qt6-wayland hyprland
+install_packages xdg-utils xdg-desktop-portal-hyprland grim slurp
+install_packages hyprlock hyprpaper hyprpicker hyprpolkitagent
+install_packages waybar wofi wtype dunst gvfs gnome-keyring cliphist
+install_packages networkmanager network-manager-applet blueman
 
-sudo pacman -S --noconfirm --needed noto-fonts-emoji otf-font-awesome ttf-roboto ttf-jetbrains-mono
-sudo pacman -S --noconfirm --needed orchis-theme tela-circle-icon-theme-standard
+install_packages kitty libcanberra
+install_packages thunar thunar-archive-plugin xarchiver
+install_packages mousepad ristretto vlc gparted
 
-echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Finished: Installation"
+# sudo pacman -S code
+# sudo pacman -S qemu-desktop
+# sudo pacman -S steam gamescope
 
-./setup.sh
+echo "[$title] Finished: Installation"
+
+while true; do
+    read -r -p "[$title] Run configuration script now? [y/n] " result
+    if [[ "$result" == [Yy]* ]]; then
+        ./setup.sh
+        break
+    elif [[ "$result" == [Nn]* ]]; then
+        read -r -s -n 1 -p "[$title] Press any key to continue..." && echo
+        break
+    fi
+done
