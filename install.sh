@@ -1,10 +1,10 @@
 #!/bin/bash
 
-title=$(echo -e "\e[94mdotfiles\e[0m")
+title=$'\e[94mdotfiles\e[0m'
 
 install_packages() {
-    sudo pacman -S --needed --noconfirm $@
-    sudo pacman -D --quiet --asexplicit --noconfirm $@
+    sudo pacman -S --noconfirm --needed $@
+    sudo pacman -D --noconfirm --quiet --asexplicit $@
 }
 
 echo "[$title] Started: Installation"
