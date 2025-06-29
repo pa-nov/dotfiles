@@ -1,29 +1,54 @@
 [global]
+sort = update
 follow = mouse
-notification_limit = 8
-width = (64, 512)
-origin = bottom-right
-offset = 16x16
-progress_bar_height = 12
-progress_bar_min_width = 64
-progress_bar_max_width = 512
-progress_bar_frame_width = 2
-progress_bar_corner_radius = 4
-frame_width = 2
-gap_size = 8
-font = "Roboto 12"
 format = "<big><b>%s</b></big>\n%b"
-ignore_newline = false
+script = "~/.config/dunst/dunst.sh"
+icon_path = "/usr/share/icons/Tela-circle-dark/24/panel/:/usr/share/icons/Tela-circle-dark/scalable/devices/:/usr/share/icons/Tela-circle-dark/scalable/apps/:/usr/share/icons/Tela-circle-dark/scalable/mimetypes/"
+notification_limit = 8
+show_age_threshold = 30
 stack_duplicates = false
 show_indicators = true
+indicate_hidden = true
+ignore_newline = false
+dmenu = "~/.config/wofi/dunst.sh"
+mouse_left_click = close_current
+mouse_right_click = context
+mouse_middle_click = none
+
+background = "#181818E0"
+origin = bottom-right
+offset = (16, 16)
+height = (64, 512)
+width = (256, 512)
+font = "Roboto 12"
+min_icon_size = 48
+max_icon_size = 48
 corner_radius = 12
-background = "#101010"
-foreground = "#FFFFFF"
-highlight = "#40BB40"
-frame_color = "#808080"
+frame_width = 0
+gap_size = 8
+padding = 12
+horizontal_padding = 12
+text_icon_padding = 4
+
+highlight = "#208020"
+progress_bar = true
+progress_bar_height = 12
+progress_bar_min_width = 128
+progress_bar_max_width = 512
+progress_bar_frame_width = 0
+progress_bar_corner_radius = 6
+
 
 [urgency_low]
-frame_color = "#404040"
+foreground = "#B0B0B0"
+default_icon = "state-information"
+
+
+[urgency_normal]
+foreground = "#FFFFFF"
+default_icon = "notification-symbolic"
+
 
 [urgency_critical]
-frame_color = "#800000"
+foreground = "#B02020"
+default_icon = "state-warning"

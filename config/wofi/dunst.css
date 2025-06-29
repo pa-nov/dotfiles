@@ -1,0 +1,33 @@
+* {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+    border-radius: 12px;
+    background: none;
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+#outer-box {
+    background: #202020;
+}
+
+#input {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+#scroll {
+    background: #181818;
+    padding: 8px;
+}
+
+#entry {
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#entry:selected {
+    box-shadow: inset 0 0 0 2px #202020;
+}
