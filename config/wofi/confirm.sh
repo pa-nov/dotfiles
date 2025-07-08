@@ -1,10 +1,7 @@
 #!/bin/bash
 
-killall wofi
-
-CONFIG="$HOME/.config/wofi"
-
-wofi="wofi -c $CONFIG/confirm.ini -s $CONFIG/confirm.css"
+WOFI_DIR="$(dirname "$(realpath "$0")")"
+WOFI="wofi -c $WOFI_DIR/confirm.ini -s $WOFI_DIR/confirm.css"
 
 if [[ "$1" ]]; then
     prompt="$1"
@@ -12,7 +9,9 @@ else
     prompt="Are you sure?"
 fi
 
-if [[ $(echo -e "Yes\nNo" | $wofi --prompt="$prompt") == "Yes" ]]; then
+canberra-gtk-play -i dialog-warning &
+
+if [[ "$($WOFI --prompt "$prompt" <<< $'Yes\nNo')" == "Yes" ]]; then
     echo "true"
     exit 0
 else

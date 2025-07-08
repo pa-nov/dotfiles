@@ -1,13 +1,12 @@
 #!/bin/bash
 
-killall wofi
+WOFI_DIR="$(dirname "$(realpath "$0")")"
+WOFI="wofi -c $WOFI_DIR/applications.ini -s $WOFI_DIR/applications.css"
 
-CONFIG="$HOME/.config/wofi"
-
-wofi="wofi -c $CONFIG/applications.ini -s $CONFIG/applications.css"
+(( $(pkill -c -f "$WOFI") > 0 )) && exit 0
 
 if [[ "$1" == "--waybar" ]]; then
-    $wofi --location 1 -H 90% -x 4 -y 4
+    $WOFI --location 1 --height 90% -x 4 -y 4
 else
-    $wofi
+    $WOFI
 fi

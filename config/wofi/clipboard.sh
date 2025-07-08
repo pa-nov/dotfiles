@@ -1,26 +1,24 @@
 #!/bin/bash
 
-killall wofi
+WOFI_DIR="$(dirname "$(realpath "$0")")"
+WOFI="wofi -c $WOFI_DIR/clipboard.ini -s $WOFI_DIR/clipboard.css"
 
-CONFIG="$HOME/.config/wofi"
+(( $(pkill -c -f "$WOFI") > 0 )) && exit 0
 
-wofi="wofi -c $CONFIG/clipboard.ini -s $CONFIG/clipboard.css"
+history="$(cliphist list)"
 
-cliphist=$(cliphist list)
-
-if [[ "$cliphist" ]]; then
-    last=$(echo -e "\nClear History")
-    result=$(echo "$cliphist$last" | $wofi)
+if [[ "$history" ]]; then
+    result="$($WOFI <<< "$history"$'\nClear History')"
     if [[ "$result" == "Clear History" ]]; then
-        if $CONFIG/confirm.sh "Delete all history?"; then
+        if $WOFI_DIR/confirm.sh "Delete all history?"; then
             wl-copy --clear
             rm $HOME/.cache/cliphist/db
         fi
     else
         if [[ "$result" ]]; then
-            cliphist decode $result | wl-copy
+            wl-copy < <(cliphist decode "$result")
         fi
     fi
 else
-    notify-send -u low -t 1000 "Clipboard is empty"
+    notify-send -t 1500 -u low -i clipboard "Clipboard is empty"
 fi

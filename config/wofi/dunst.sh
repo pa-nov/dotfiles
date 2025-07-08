@@ -1,9 +1,6 @@
 #!/bin/bash
 
-killall wofi
+WOFI_DIR="$(dirname "$(realpath "$0")")"
+WOFI="wofi -c $WOFI_DIR/dunst.ini -s $WOFI_DIR/dunst.css"
 
-CONFIG="$HOME/.config/wofi"
-
-wofi="wofi -c $CONFIG/dunst.ini -s $CONFIG/dunst.css"
-
-$wofi
+$WOFI
