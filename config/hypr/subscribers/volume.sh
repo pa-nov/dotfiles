@@ -1,27 +1,34 @@
 #!/bin/bash
 
-notify-send -r 2 -u low -t 1 "Volume"
-
-get_volume() {
-    wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}'
+send_notification() {
+    volume=$(awk '{print $0 * 100}' <<< "$1")
+    muted=$2
+    text="${volume}%"
+    icon="audio-volume"
+    if [[ "$muted" ]]; then
+        text="Muted"
+        icon+="-muted-blocking"
+    elif (( volume == 0 )); then
+        icon+="-muted"
+    elif (( volume < 33 )); then
+        icon+="-low"
+    elif (( volume < 66 )); then
+        icon+="-medium"
+    else
+        icon+="-high"
+    fi
+    notify-send -r 2 -t 1000 -u low -c silent -i $icon -h int:value:$volume "Volume: ${text}"
 }
 
-get_muted() {
-    wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}'
-}
+notify-send -r 2 -t 1 -u low -c silent "Volume"
+previous=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2, $3}')
 
-previous="$(get_volume) $(get_muted)"
-
-pactl subscribe | grep --line-buffered "Event 'change' on sink" | while read -r; do
-    volume=$(get_volume)
-    muted=$(get_muted)
-    if [[ "$previous" != "$volume $muted" ]]; then
-        previous="$volume $muted"
-        value=$(echo "$volume 100" | awk '{print $1*$2}')
-        if [[ "$muted" ]]; then
-            notify-send -r 2 -u low -t 1000 -h int:value:$value "Volume: Muted"
-        else
-            notify-send -r 2 -u low -t 1000 -h int:value:$value "Volume: $value%"
+while read -r line; do
+    if [[ "$line" == "Event 'change' on sink"* ]]; then
+        current=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2, $3}')
+        if [[ "$previous" != "$current" ]]; then
+            previous=$current
+            send_notification $current
         fi
     fi
-done
+done < <(pactl subscribe)

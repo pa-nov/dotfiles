@@ -1,6 +1,0 @@
-[Unit]
-StartLimitIntervalSec=0
-
-[Service]
-Type=oneshot
-ExecStart=%h/.config/hypr/subscribers/brightness.sh
