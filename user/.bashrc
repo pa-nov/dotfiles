@@ -25,3 +25,5 @@ else
     PS1+='\n╰╴$ '
 fi
 alias sudo='sudo '
+
+bind 'set completion-ignore-case on'
