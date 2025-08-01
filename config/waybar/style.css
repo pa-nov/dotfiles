@@ -1,5 +1,6 @@
 /* "otf-font-awesome" is required to be installed for icons */
 
+@define-color hover-color rgba(255, 255, 255, 0.1);
 @define-color text-color #FFFFFF;
 @define-color half-color #808080;
 @define-color back-color #101018;
@@ -18,10 +19,6 @@ window {
     background: none;
 }
 
-tooltip label {
-    padding: 8px;
-}
-
 menu {
     background: #202020;
 }
@@ -32,6 +29,42 @@ menu separator {
     margin-right: 12px;
 }
 
+tooltip label {
+    padding: 8px;
+}
+
+menu *,
+tooltip *,
+#pulseaudio {
+    font-size: 16px;
+}
+
+
+#custom-apps,
+#taskbar button,
+#workspaces button,
+#language,
+#clock {
+    transition: box-shadow 250ms;
+    box-shadow: inset 0 0 0 0px @hover-color;
+}
+
+#custom-apps:hover,
+#taskbar button:hover,
+#workspaces button:hover,
+#language:hover,
+#clock:hover {
+    box-shadow: inset 0 0 0 18px @hover-color;
+}
+
+
+#taskbar,
+#workspaces,
+#group-system,
+#group-tray,
+#group-power {
+    background: @back-color;
+}
 
 #custom-apps,
 #language,
@@ -42,16 +75,30 @@ menu separator {
     padding-right: 10px;
 }
 
-
-#taskbar {
-    background: @back-color;
+#group-system,
+#systemd-failed-units,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#group-power,
+#custom-lock,
+#custom-logout,
+#custom-restart,
+#custom-poweroff {
+    transition: color 250ms;
+    color: @text-color;
+    padding-left: 5px;
+    padding-right: 5px;
 }
+
 
 #taskbar.empty {
     background: none;
 }
 
 #taskbar button {
+    transition: box-shadow 250ms, background 250ms;
     padding: 4px;
 }
 
@@ -61,11 +108,11 @@ menu separator {
 
 
 #workspaces {
-    background: @back-color;
     border-radius: 20px;
 }
 
 #workspaces button {
+    transition: box-shadow 250ms, background 250ms;
     color: @half-color;
     min-width: 16px;
     border-radius: 20px;
@@ -80,29 +127,23 @@ menu separator {
 }
 
 
-#group-system,
-#systemd-failed-units,
-#cpu,
-#memory,
-#temperature,
-#battery,
-#group-tray,
 #pulseaudio,
-#privacy,
-#tray,
-#group-power,
-#custom-lock,
-#custom-logout,
-#custom-restart,
-#custom-poweroff {
-    color: @text-color;
-    background: @back-color;
-    padding-left: 5px;
-    padding-right: 5px;
+#privacy-item,
+#tray > * > image {
+    min-width: 36px;
 }
 
-#pulseaudio {
-    font-size: 16px;
+#systemd-failed-units:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#battery:hover {
+    color: @half-color;
+}
+
+#pulseaudio,
+#tray {
+    color: @text-color;
 }
 
 #privacy {
