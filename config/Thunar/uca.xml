@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
-	<icon>utilities-terminal</icon>
+	<icon>cm_runterm</icon>
 	<name>Open Terminal Here</name>
 	<command>cd %f; kitty</command>
 	<patterns>*</patterns>
 	<directories/>
 </action>
 <action>
-	<icon>accessories-text-editor</icon>
+	<icon>folder-git</icon>
+	<name>Open Git Here</name>
+	<command>cd %f; git gui</command>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>edit-select-text</icon>
 	<name>Open in Text Editor</name>
 	<command>mousepad -o window %f</command>
 	<patterns>*</patterns>
