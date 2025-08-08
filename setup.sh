@@ -1,34 +1,71 @@
 #!/bin/bash
 
-run() {
-    if "$@"; then
-        echo "[$(tput setaf 10) SUCCESS $(tput sgr0)] $@"
-    else
-        echo "[$(tput setaf  9)  ERROR  $(tput sgr0)] $@"
+title=$'\e[94mdotfiles\e[0m'
+start=$'\e[93m*\e[0m'
+error=$'\e[91m-\e[0m'
+
+run_command() {
+    echo "[${title}] [${start}] $@"
+    "$@"
+    if (( $? != 0 )); then
+        echo "[${title}] [${error}] $@"
     fi
 }
 
-echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Started: Configuration"
+echo "[${title}] Started: Configuration"
 
-run mkdir ~/Desktop
-run mkdir ~/Downloads
-run mkdir ~/Templates
-run mkdir ~/Public
-run mkdir ~/Documents
-run mkdir ~/Documents/Projects
-run mkdir ~/Music
-run mkdir ~/Pictures
-run mkdir ~/Pictures/Screenshots
-run mkdir ~/Videos
+run_command sudo mkdir -p /home/programs
+run_command sudo chown $USER:$USER /home/programs
+run_command sudo cp -r ./etc/. /etc/
+run_command sudo cp -r ./user/. /root/
+run_command sudo ln -s -f /usr/bin/kitty /usr/bin/xdg-terminal-exec
 
-run cp -r ./user/. ~/
-run cp -r ./local/. ~/.local/
-run cp -r ./config/. ~/.config/
+run_command mkdir -p $HOME/Desktop
+run_command mkdir -p $HOME/Downloads
+run_command mkdir -p $HOME/Templates
+run_command mkdir -p $HOME/Public
+run_command mkdir -p $HOME/Documents
+run_command mkdir -p $HOME/Projects
+run_command mkdir -p $HOME/QemuVMs
+run_command mkdir -p $HOME/Music
+run_command mkdir -p $HOME/Pictures
+run_command mkdir -p $HOME/Pictures/Screenshots
+run_command mkdir -p $HOME/Videos
 
-run sudo cp -r ./etc/. /etc/
-run sudo cp -r ./user/. /root/
-run sudo systemctl enable bluetooth
+run_command cp -r ./user/. $HOME/
+run_command cp -r ./local/. $HOME/.local/
+run_command cp -r ./config/. $HOME/.config/
 
-run hyprctl reload
+run_command gsettings set org.gnome.desktop.sound event-sounds true
+run_command gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
+run_command gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+run_command gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Dark"
+run_command gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-dark"
+run_command gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+run_command gsettings set org.gnome.desktop.interface cursor-size 24
+run_command gsettings set org.gnome.desktop.interface font-name "Roboto 12"
+run_command gsettings set org.gnome.desktop.interface document-font-name "Roboto 12"
+run_command gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono NL 12"
 
-echo "[$(tput setaf 12)dotfiles$(tput sgr0)] Finished: Configuration"
+run_command gsettings set org.xfce.mousepad.preferences.file session-restore "never"
+run_command gsettings set org.xfce.mousepad.preferences.file add-last-end-of-line false
+run_command gsettings set org.xfce.mousepad.preferences.view use-default-monospace-font false
+run_command gsettings set org.xfce.mousepad.preferences.view font-name "JetBrains Mono NL Bold 12"
+run_command gsettings set org.xfce.mousepad.preferences.view color-scheme "solarized-dark"
+run_command gsettings set org.xfce.mousepad.preferences.view highlight-current-line true
+run_command gsettings set org.xfce.mousepad.preferences.view show-line-numbers true
+
+run_command xfconf-query --create -c ristretto -t string -p /window/navigationbar/position -s bottom
+run_command xfconf-query --create -c ristretto -t string -p /desktop/type -s none
+
+run_command xfconf-query --create -c thunar -t string -p /default-view -s ThunarIconView
+run_command xfconf-query --create -c thunar -t string -p /last-view -s ThunarIconView
+run_command xfconf-query --create -c thunar -t string -p /last-icon-view-zoom-level -s THUNAR_ZOOM_LEVEL_200_PERCENT
+run_command xfconf-query --create -c thunar -t bool -p /last-show-hidden -s true
+run_command xfconf-query --create -c thunar -t int -p /last-separator-position -s 230
+
+run_command xdg-settings set default-web-browser brave-browser-private.desktop
+
+echo "[${title}] Finished: Configuration"
+
+read -r -s -n 1 -p "[${title}] Press any key to continue..." && echo
