@@ -36,33 +36,49 @@ run_command cp -r ./user/. $HOME/
 run_command cp -r ./local/. $HOME/.local/
 run_command cp -r ./config/. $HOME/.config/
 
-run_command gsettings set org.gnome.desktop.sound event-sounds true
-run_command gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
+run_command gsettings set org.gnome.desktop.sound event-sounds "true"
+run_command gsettings set org.gnome.desktop.interface gtk-enable-primary-paste "false"
 run_command gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 run_command gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Dark"
 run_command gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-dark"
 run_command gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
-run_command gsettings set org.gnome.desktop.interface cursor-size 24
+run_command gsettings set org.gnome.desktop.interface cursor-size "24"
 run_command gsettings set org.gnome.desktop.interface font-name "Roboto 12"
 run_command gsettings set org.gnome.desktop.interface document-font-name "Roboto 12"
 run_command gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono NL 12"
 
 run_command gsettings set org.xfce.mousepad.preferences.file session-restore "never"
-run_command gsettings set org.xfce.mousepad.preferences.file add-last-end-of-line false
-run_command gsettings set org.xfce.mousepad.preferences.view use-default-monospace-font false
+run_command gsettings set org.xfce.mousepad.preferences.file add-last-end-of-line "false"
+run_command gsettings set org.xfce.mousepad.preferences.view use-default-monospace-font "false"
 run_command gsettings set org.xfce.mousepad.preferences.view font-name "JetBrains Mono NL Bold 12"
 run_command gsettings set org.xfce.mousepad.preferences.view color-scheme "solarized-dark"
-run_command gsettings set org.xfce.mousepad.preferences.view highlight-current-line true
-run_command gsettings set org.xfce.mousepad.preferences.view show-line-numbers true
+run_command gsettings set org.xfce.mousepad.preferences.view show-line-numbers "true"
+run_command gsettings set org.xfce.mousepad.preferences.view highlight-current-line "true"
 
-run_command xfconf-query --create -c ristretto -t string -p /window/navigationbar/position -s bottom
-run_command xfconf-query --create -c ristretto -t string -p /desktop/type -s none
+run_command xfconf-query --create -c ristretto -t bool -p "/window/toolbar/show" -s "true"
+run_command xfconf-query --create -c ristretto -t bool -p "/window/statusbar/show" -s "true"
+run_command xfconf-query --create -c ristretto -t bool -p "/window/thumbnails/show" -s "true"
+run_command xfconf-query --create -c ristretto -t uint -p "/window/thumbnails/size" -s "3"
+run_command xfconf-query --create -c ristretto -t string -p "/window/navigationbar/position" -s "bottom"
+run_command xfconf-query --create -c ristretto -t string -p "/desktop/type" -s "none"
 
-run_command xfconf-query --create -c thunar -t string -p /default-view -s ThunarIconView
-run_command xfconf-query --create -c thunar -t string -p /last-view -s ThunarIconView
-run_command xfconf-query --create -c thunar -t string -p /last-icon-view-zoom-level -s THUNAR_ZOOM_LEVEL_200_PERCENT
-run_command xfconf-query --create -c thunar -t bool -p /last-show-hidden -s true
-run_command xfconf-query --create -c thunar -t int -p /last-separator-position -s 230
+run_command xfconf-query --create -c thunar -t int -p "/last-separator-position" -s "230"
+run_command xfconf-query --create -c thunar -t bool -p "/last-show-hidden" -s "true"
+run_command xfconf-query --create -c thunar -t string -p "/last-side-pane" -s "THUNAR_SIDEPANE_TYPE_SHORTCUTS"
+run_command xfconf-query --create -c thunar -t string -p "/last-location-bar" -s "ThunarLocationEntry"
+run_command xfconf-query --create -c thunar -t string -p "/last-toolbar-items" -s "open-home:1,back:1,forward:1,reload:1,open-parent:1,location-bar:1,search:1,toggle-split-view:1"
+run_command xfconf-query --create -c thunar -t string -p "/last-icon-view-zoom-level" -s "THUNAR_ZOOM_LEVEL_200_PERCENT"
+run_command xfconf-query --create -c thunar -t string -p "/last-view" -s "ThunarIconView"
+run_command xfconf-query --create -c thunar -t string -p "/default-view" -s "ThunarIconView"
+run_command xfconf-query --create -c thunar -t string -p "/shortcuts-icon-size" -s "THUNAR_ICON_SIZE_32"
+run_command xfconf-query --create -c thunar -t string -p "/misc-date-style" -s "THUNAR_DATE_STYLE_DDMMYYYY"
+run_command xfconf-query --create -c thunar -t string -p "/misc-thumbnail-mode" -s "THUNAR_THUMBNAIL_MODE_NEVER"
+run_command xfconf-query --create -c thunar -t string -p "/misc-exec-shell-scripts-by-default" -s "THUNAR_EXECUTE_SHELL_SCRIPT_NEVER"
+run_command xfconf-query --create -c thunar -t bool -p "/misc-symbolic-icons-in-sidepane" -s "true"
+run_command xfconf-query --create -c thunar -t bool -p "/misc-full-path-in-tab-title" -s "true"
+run_command xfconf-query --create -c thunar -t bool -p "/misc-middle-click-in-tab" -s "true"
+run_command xfconf-query --create -c thunar -t bool -p "/misc-show-delete-action" -s "true"
+run_command xfconf-query --create -c thunar -t bool -p "/misc-volume-management" -s "false"
 
 run_command xdg-settings set default-web-browser brave-browser-private.desktop
 
