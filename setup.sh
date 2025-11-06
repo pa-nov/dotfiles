@@ -14,6 +14,9 @@ run_command() {
 
 echo "[${title}] Started: Configuration"
 
+run_command sudo systemctl enable upower.service
+run_command sudo systemctl enable udisks2.service
+run_command sudo systemctl enable bluetooth.service
 run_command sudo mkdir -p /home/programs
 run_command sudo chown $USER:$USER /home/programs
 run_command sudo cp -r ./etc/. /etc/
