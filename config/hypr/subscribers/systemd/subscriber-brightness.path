@@ -1,2 +1,2 @@
 [Path]
-PathModified=/sys/class/backlight/amdgpu_bl1/brightness
+PathModified=/sys/class/backlight/amdgpu/brightness
