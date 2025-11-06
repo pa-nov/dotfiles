@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+
+Icon=blender
+Name=Blender
+Comment=Fully integrated 3D graphics creation suite
+
+Exec=/home/programs/blender/blender %f
+Terminal=false
