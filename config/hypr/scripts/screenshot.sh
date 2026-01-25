@@ -10,7 +10,7 @@ send_notification() {
         description+=" and saved as <b>${1/#$HOME/\~}</b>"
     fi
     canberra-gtk-play -i screen-capture &
-    notify-send -t 3000 -c silent -i accessories-screenshot "Screenshot created" "$description"
+    notify-send -t 4000 -c silent -i accessories-screenshot "Screenshot captured" "$description"
 }
 
 capture_region() {
@@ -36,12 +36,14 @@ capture_window() {
                 SIZE=${line:9:-2} ;;
         esac
     done < <(hyprctl activewindow -j)
-    REGION="${POSITION/, /,} ${SIZE/, /x}"
-    hyprctl dispatch alterzorder top, address:$ADDRESS
-    hyprctl dispatch setprop address:$ADDRESS rounding 0
-    grim -g "$REGION" -c - | wl-copy
-    hyprctl dispatch setprop address:$ADDRESS rounding unset
-    send_notification
+    if [[ "$ADDRESS" ]]; then
+        REGION="${POSITION/, /,} ${SIZE/, /x}"
+        hyprctl dispatch alterzorder top, address:$ADDRESS
+        hyprctl dispatch setprop address:$ADDRESS rounding 0
+        grim -g "$REGION" -c - | wl-copy
+        hyprctl dispatch setprop address:$ADDRESS rounding unset
+        send_notification
+    fi
 }
 
 capture_screen() {
@@ -59,7 +61,7 @@ capture_screen() {
 }
 
 open_menu() {
-    notify-send -i accessories-screenshot "Screenshot not created" "menu in development..."
+    notify-send -i accessories-screenshot "Screenshot not captured" "Error: menu in development..."
 }
 
 case "$1" in
