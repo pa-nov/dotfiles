@@ -1,32 +1,40 @@
 /* "otf-font-awesome" is required to be installed for icons */
 
-@define-color hover-color rgba(255, 255, 255, 0.1);
+@define-color hover-color rgba(255, 255, 255, 0.2);
 @define-color text-color #FFFFFF;
 @define-color half-color #808080;
-@define-color back-color #101018;
+@define-color back-color #212121;
 
 * {
-    border-radius: 12px;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
     font-size: 20px;
+    font-weight: bold;
+    font-family: system-ui;
+    border-radius: 12px;
     transition: none;
     outline: none;
     border: none;
 }
 
-window {
-    background: none;
+
+window#waybar {
+    background: #000000;
+    border-radius: 0px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 4px;
 }
 
 menu {
-    background: #202020;
+    background: #2C2C2C;
 }
 
 menu separator {
-    background: #404040;
     margin-left: 12px;
     margin-right: 12px;
+    background: #3C3C3C;
 }
 
 tooltip label {
@@ -39,22 +47,32 @@ tooltip *,
     font-size: 16px;
 }
 
+#clock {
+    font-family: Roboto, system-ui;
+}
+
 
 #custom-apps,
 #taskbar button,
 #workspaces button,
+#pulseaudio,
+#privacy,
+#tray > *,
 #language,
 #clock {
     transition: box-shadow 250ms;
-    box-shadow: inset 0 0 0 0px @hover-color;
+    box-shadow: inset 0 0 0 20px transparent;
 }
 
 #custom-apps:hover,
 #taskbar button:hover,
 #workspaces button:hover,
+#pulseaudio:hover,
+#privacy:hover,
+#tray > *:hover,
 #language:hover,
 #clock:hover {
-    box-shadow: inset 0 0 0 18px @hover-color;
+    box-shadow: inset 0 0 0 20px @hover-color;
 }
 
 
@@ -71,8 +89,8 @@ tooltip *,
 #clock {
     color: @text-color;
     background: @back-color;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 #group-system,
@@ -80,7 +98,13 @@ tooltip *,
 #cpu,
 #memory,
 #temperature,
-#battery,
+#battery {
+    transition: color 250ms;
+    color: @text-color;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
 #group-power,
 #custom-lock,
 #custom-logout,
@@ -88,8 +112,9 @@ tooltip *,
 #custom-poweroff {
     transition: color 250ms;
     color: @text-color;
-    padding-left: 5px;
-    padding-right: 5px;
+    min-width: 24px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 
@@ -99,11 +124,11 @@ tooltip *,
 
 #taskbar button {
     transition: box-shadow 250ms, background 250ms;
-    padding: 4px;
+    padding: 6px;
 }
 
 #taskbar button.active {
-    background: #204020;
+    background: #194175;
 }
 
 
@@ -114,7 +139,7 @@ tooltip *,
 #workspaces button {
     transition: box-shadow 250ms, background 250ms;
     color: @half-color;
-    min-width: 16px;
+    min-width: 20px;
     border-radius: 20px;
 }
 
@@ -123,14 +148,14 @@ tooltip *,
 }
 
 #workspaces button.active {
-    background: #202040;
+    background: #3281EA;
 }
 
 
 #pulseaudio,
 #privacy-item,
 #tray > * > image {
-    min-width: 36px;
+    min-width: 40px;
 }
 
 #systemd-failed-units:hover,
