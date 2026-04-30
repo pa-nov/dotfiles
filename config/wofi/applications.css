@@ -1,7 +1,7 @@
 * {
     color: #FFFFFF;
     font-size: 20px;
-    font-family: Roboto, sans-serif;
+    font-family: system-ui;
     border-radius: 20px;
     background: none;
     box-shadow: none;
@@ -10,7 +10,7 @@
 }
 
 #outer-box {
-    background: #202020;
+    background: #2C2C2C;
 }
 
 #input {
@@ -19,19 +19,21 @@
 }
 
 #scroll {
-    background: #101018;
-    padding: 8px;
+    background: #212121;
+    padding: 4px;
 }
 
 #entry {
+    margin: 4px;
+    background: #2C2C2C;
     border-radius: 12px;
 }
 
 #entry:selected {
-    box-shadow: inset 0 0 0 4px #202020;
+    background: #3C3C3C;
 }
 
 image,
 label {
-    padding: 6px;
+    padding: 4px;
 }

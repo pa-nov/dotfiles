@@ -12,7 +12,7 @@ if [[ "$history" ]]; then
     if [[ "$result" == "Clear History" ]]; then
         if $WOFI_DIR/confirm.sh "Delete all history?"; then
             wl-copy --clear
-            rm $HOME/.cache/cliphist/db
+            rm -r $HOME/.cache/cliphist
         fi
     else
         if [[ "$result" ]]; then
@@ -20,5 +20,5 @@ if [[ "$history" ]]; then
         fi
     fi
 else
-    notify-send -t 1500 -u low -i clipboard "Clipboard is empty"
+    notify-send -t 2000 -u low -i clipboard "Clipboard is empty"
 fi
