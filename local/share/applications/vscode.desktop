@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+
+Icon=vscode
+Name=Visual Studio Code
+Comment=Code editor for development across multiple languages
+
+Exec=/home/user/.local/bin/vscode/code %F
+Terminal=false

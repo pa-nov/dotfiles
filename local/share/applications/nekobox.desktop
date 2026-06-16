@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-
-Icon=preferences-system-network-proxy
-Name=NekoBox
-Comment=Proxy configuration manager
-
-Exec=/home/programs/nekobox/launcher
-Terminal=false

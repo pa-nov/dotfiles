@@ -5,5 +5,5 @@ Icon=brave-desktop
 Name=Brave
 Comment=Web browser for accessing the internet
 
-Exec=/home/programs/brave/brave --ozone-platform=wayland %U
+Exec=/home/user/.local/bin/brave/browser/brave --ozone-platform=wayland --password-store=basic %U
 Terminal=false

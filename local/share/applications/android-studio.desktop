@@ -5,5 +5,5 @@ Icon=android-studio
 Name=Android Studio
 Comment=IDE for android application development
 
-Exec=/home/programs/android/studio/bin/studio %f
+Exec=/home/user/.local/bin/android/studio/bin/studio %f
 Terminal=false

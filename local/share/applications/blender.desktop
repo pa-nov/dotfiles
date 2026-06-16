@@ -5,5 +5,5 @@ Icon=blender
 Name=Blender
 Comment=Fully integrated 3D graphics creation suite
 
-Exec=/home/programs/blender/blender %f
+Exec=/home/user/.local/bin/blender/blender %f
 Terminal=false
