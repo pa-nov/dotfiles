@@ -4,6 +4,8 @@
 
 [[ $- != *i* ]] && return
 
+export HISTFILE=/dev/null
+
 alias e='exit'
 alias c='clear'
 
